@@ -1,0 +1,524 @@
+/* *************************************************Home ***********************************************/
+.nl{
+    font-size:18px;
+}
+.aa{
+    background-color:#FC822B;
+    width:200px;
+    text-align:center;
+    height: 30px;
+    color:white;
+    border:none ;
+    font-size: large;
+
+}
+.aa:hover{
+    background-color: #D97127;
+}
+.ab:hover{
+    border-color: #D97127;
+}
+.ab{
+    background-color: white;
+    width:200px;
+    height: 30px;
+    text-align:center;
+    color: #DD7327;
+    border:white;
+    font-size: large;
+ 
+}
+nav img{
+    margin-left: 70px;
+    margin-right: 100px;
+}
+
+nav ul li a:focus{
+    border-top : 4px solid #0089BF ; 
+    color: #0089BF;
+}
+nav ul {
+    display: flex;
+    justify-content: space-around;
+}
+.p1{
+    letter-spacing: 5px;
+    color:#97958A;
+    margin-top: 25px;
+}
+.p2{
+    text-align:center;
+    color:#B8B8B8;
+    margin-top: 20px;
+}
+.p3{
+    text-align:center;
+    color:#B8B8B8;
+    margin-top: 20px;
+}
+.btn1{
+background-color:rgba(9,128,179,0.8);;
+text-align: center;
+width:68%;
+font-size: large;
+letter-spacing: 5px;
+margin:100px;
+padding-top: 7px;
+    padding-bottom: 7px;
+    border-radius: 7px;
+    
+}
+.btn1 a{
+    text-decoration: none;
+}
+.btn2 a{
+    text-decoration: none;
+}
+.btn1:hover{
+    background-color:#0089BF;
+    }
+.btn2:hover{
+background-color: #43BF32;
+}
+.btn2{
+    background-color: rgba(67,191,50,0.8);
+    
+    text-align: center;
+    width:68%;
+    font-size: large;
+    letter-spacing: 5px;
+    margin:100px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    border-radius: 7px;
+    }
+.a1{
+    color:white;
+}
+.a2{
+    color:white;
+}
+.div1{
+  background-image: url("/img3.jpg");  
+  height: 280px;
+  background-repeat: no-repeat;
+  background-size:cover ;
+  width: 100%;
+}
+.div2{
+    background-image: url("/img2.jpg"); 
+    height: 280px;
+    background-repeat: no-repeat;
+  background-size:cover ;
+  width: 100%;
+  }
+.section1 h2 {
+   text-align:center  ;
+color: #514E6B;
+display: block;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Muli", 'Tahoma', sans-serif;
+    font-size: 1.4em;
+    font-weight: normal;
+    margin-bottom: 10px;
+padding-top: 20px;
+  }
+.section1{
+  height: 150px;
+   background-color: #E9E8E3;
+   
+}
+span.Text{
+    display: block;
+   
+    font-size: 1em;
+    
+}
+.section1 li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding-right: 7px;
+    margin-bottom: 7px;
+
+}
+span.number {
+    margin-top: 5px;
+    border: 2px solid #a8a69a;
+    font-size: 1.4em;
+    line-height: 34px;
+    height: 38px;
+    width: 38px;
+    color: #f6f6f4;
+    background: #a8a69a;
+    border-radius: 50%;
+    text-align: center;
+    display: block;
+    margin-left: 50px;
+    margin-right: 20px;
+}
+/* ************************************Demande location ******************************************** */
+.locataire{
+    background-image: url("/img4.jpg");
+    height: 400px;
+    background-size: cover;
+    margin-top: 20px;
+}
+#cta_page {
+    width: 1200px;
+    padding: 2em;
+    padding-bottom: 1.5em;
+    margin: 0 auto;
+    border-radius: 3px;
+    text-align: center;
+}
+.tst{
+    background: rgba(255, 255, 255, 0.9);
+    margin-top:60px;
+   height: 270px;
+   
+}
+#cta_page p {
+    font-size: 1.1em;
+    line-height: 1em;
+    color: #555555;
+}
+#cta_page h1 {
+    display: block;
+    font-family: "Muli", 'Tahoma', sans-serif;
+    font-weight: normal;
+    text-transform: uppercase;
+    margin: .67em 0;
+    font-size: 25px;
+    letter-spacing: 2px;
+    padding-top: 30px;
+   
+}
+.cta {
+    background: #0089BF;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 1.3em;
+    /* margin: 0 auto; */
+   
+    margin-bottom: 50px;
+    color: #fff;
+    border-radius: 3px;
+}
+#avantages{
+    background-color: #F6F6F4;
+    height: 400px;
+}
+#avantages h2{
+    font-family: "Muli","Tahoma",sans-serif;
+    font-size: 1.5em;
+    font-weight: normal;
+    line-height: 1.2em;
+    text-transform: uppercase;
+    color: #7d7a6d;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+}
+
+#avantages .txtcenter{
+    text-align: center;
+}
+.block h3 {
+    font-size: 1.4em;
+    font-family: "Muli","Tahoma",sans-serif;
+    font-weight: normal;
+    color: #7d7a6d;
+    
+}
+.block p {
+    font-size: 15px;
+   
+}
+.ptm{
+    margin-left: 70px;
+    margin-right: 70px;
+}
+#exclusivites{
+    background-color: #E9E8E3;
+}
+#exclusivites h2 {
+    padding-top: 20px;
+    font-family: "Muli","Tahoma",sans-serif;
+    font-size: 1.5em;
+    font-weight: normal;
+    line-height: 1.2em;
+    text-transform: uppercase;
+    color: #7d7a6d;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#exclusivites .txtcenter{
+    text-align: center;
+}
+.cta-bleu{
+    background: #005B7F;
+    border: 2px solid #005B7F;
+    color: #fff;
+    padding: 5px 20px;
+   
+
+}
+.cta-block{
+    margin: 20px 450px 20px 500px ;
+}
+.block img {
+    width:100px ;
+     height:100px;
+}
+.bg-third {
+    color: #fff;
+    background: #7D7A6D;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+   
+}
+.txtcenter {
+    text-align: center;
+}
+#footer-1 a {
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: font-size 0.4s ease 0s;
+    height: 30px;
+    line-height: 30px;
+    margin-left:100px;
+
+}
+#footer-2 p {
+    margin-bottom: 15px;
+}
+#footer-2 {
+    text-align: center;
+    font-size: 0.8em;
+}
+.bg-dark {
+    background: #514E3D;
+    color: #a8a69a;
+}
+/* ****************************************demandeLo************************************* */
+.dejainsc{
+  color:#43BF32;
+}
+.btn3{
+    background-color:#43BF32;
+}
+/* ******************************************Register******************************************* */
+#FormCreationEspace {
+    position: relative;
+}
+.bg-prim {
+    background: #F6F6F4;
+}
+.pbl {
+    padding-bottom: 4rem;
+}
+.ptl {
+    padding-top: 4rem;
+}
+ .h1_recap_vert {
+    font-size: 1.8em;
+    line-height: 1.2em;
+    font-family: "Muli","Helvetica";
+    font-weight: normal;
+    color: #43bf32;
+    text-align: center;
+}
+.pts {
+    padding-top: 1rem;
+}
+#introcoach2 {
+    background: url(../images/co.jpg) no-repeat top left;
+    background-size: contain;
+    padding-left: 150px;
+    text-align: left;
+    min-height: 105px;
+}
+
+
+#FormCreationEspace table {
+    margin: 0 auto;
+    margin-top: 10px;
+    position: relative;
+    z-index: 1;
+    background: #F6F6F4;
+}
+.cta-vert {
+    color: #fff;
+    background: #43bf32;
+    border: 2px solid #43bf32;
+    text-align: center;
+  
+
+}
+.di{
+  margin-top:60px;
+}
+.txtVertt{
+    max-width:500px; padding: 4px 16px; margin:16px auto; background-color: #d8f2c9; border: 1px solid #30b71f;
+}
+.txtright {
+    text-align: right;
+}
+.owner_text{
+    margin-bottom: 15px;
+    margin-left: 15px;
+}
+.coloc_menu {
+    background: #7d7a6d;
+    color: #fff;
+    width: 100% !important;
+    margin-top: 40px !important;
+    height:67px;
+}
+.widthMax {
+    width: 1200px;
+}
+.center, .right {
+    margin-left: auto;
+}
+
+.center, .left {
+    margin-right: auto;
+}
+.coloc_menu ul li a {
+    color: #fff;
+    padding-top: 19px;
+    padding-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: inline-block;
+    font-size: 1.2em;
+    position: relative;
+    /* z-index: 1; */
+    border-left: 1px solid #fff;
+    text-decoration: none;
+    
+}
+.coloc_menu_prop ul li.actif a {
+    background: #43BF32; 
+
+}
+.coloc_menu ul li {
+    float: left;list-style: none;
+   }
+.ahov:hover{
+    background: #43BF32; 
+}
+.ahovv:hover{
+    background: #43BF32; 
+}
+.liste_locataire td, .liste_colocataire td {
+    border-bottom: 1px solid #D5D5D5;
+    padding: 5px;
+}
+#FormCreationEspace table {
+    margin: 0 auto;
+    margin-top: 10px;
+    position: relative;
+    z-index: 1;
+    
+}
+.liste_locataire, .liste_colocataire {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #D5D5D5;
+}
+.liste_colocataire th.header {
+    font-weight: bold;
+    background-repeat: no-repeat;
+    background-position: center right;
+    padding-right: 10px;
+    padding-left: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #6ACC5F;
+    color: #fff;
+    text-align: center;
+    font-weight: normal;
+    
+}
+.listing_potentiel{
+    margin-top: 50px;
+}
+.louee_alouer {
+    background-image: url(/images/toogle_louee_alouer_big.jpg);
+    width: 70px;
+    height: 30px;
+    display: inline-block;
+    text-align: center;
+    line-height: 30px;
+}
+.bigcta {
+    display: block;
+    width: 350px;
+    color: #fff;
+    background: #38bc27;
+    border-radius: 5px;
+    font-size: 18px;
+    text-align: center;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 5px;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+.bg-prim {
+    background: #F6F6F4;
+}
+#introcoach3 {
+    background: url(../images/co.jpg) no-repeat top left;
+    background-size: contain;
+    padding-left: 250px;
+    text-align: left;
+    min-height: 105px;
+}
+.validateJq table.pt td {
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+.coloc_title{
+margin-top: 30px;
+margin-bottom: 20px;
+}
+.coloc_recap_zone.fl.noborder {
+     border-right: none; 
+     margin-right: 0; 
+    padding-right: 0;
+}
+.coloc_recap_zone {
+    padding-left: 13px;
+}
+.titrepop{
+    text-align: center;
+    color : red;
+}
+.par{
+    font-size: 12px;
+    text-align: center;
+}
+.num{
+    border: 2px solid #005B7F;
+    width:200px; 
+    text-align: center;
+    margin-left: 150px;
+    margin-bottom: 50px;
+
+}
+.formgroup label {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #111111;
+}

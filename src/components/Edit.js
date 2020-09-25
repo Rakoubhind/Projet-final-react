@@ -11,7 +11,7 @@ class Edit extends Component {
       surface: "",
       prix: "",
       adresse: "",
-      disponibilite: "",
+      disponibilite: "1",
       chambre: "",
       image1: "",
       image2: "",
@@ -40,7 +40,7 @@ class Edit extends Component {
           description: res.data.description,
           surface: res.data.surface,
           prix: res.data.prix,
-          disponibilite: res.data.disponibilite,
+          // disponibilite: res.data.disponibilite,
           chambre: res.data.chambre,
           category_id: res.data.category_id,
           adresse: res.data.adresse,
@@ -108,7 +108,7 @@ class Edit extends Component {
       
       .then((response) => {
         console.log(response);
-        // this.props.history.push(`/totallocation`);
+        this.props.history.push(`/totallocation`);
       });
   };
   //   componentDidMount() {

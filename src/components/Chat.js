@@ -1,87 +1,99 @@
 import React, { Component } from "react";
+import Footer from "./Footer";
+import axios from "axios";
+import SuccessAlert from "./SuccessAlert";
 
 export default class Chat extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      email: "",
+      user_id: "",
+      product_id: "",
+      description:"",
+      id: this.props.match.params.id,
+      products: [],
+      
+    };
+  }
+
+  onChange=(e)=> {
+    this.setState({ [e.target.name]: e.target.value })
+    console.log(e.target.value)
+
+}
+onSubmit=(e)=> {
+
+  e.preventDefault()
+  const newNotif = {
+      // name: this.state.name,
+      // email: this.state.email,
+      product_id:this.state.products.id,
+      description: this.state.description,
+     
+  };
+  axios
+    .post('http://localhost:8000/api/notifications/store' , newNotif, {
+      headers: { Authorization: `Bearer ${localStorage.usertoken}` },
+    }).then((res) => {
+      console.log(res);
+      this.setState({
+        alert_message:"success"
+      })
+
+    })
+    .catch(err =>{
+      console.log(err.response)
+    }) 
+}
+componentDidMount() {
+  const $id = this.state.id;
+  axios.get("http://localhost:8000/api/products/" + $id).then((response) => {
+    console.log(response);
+    this.setState({
+      products: response.data.product,
+      name: localStorage.name,
+      email: localStorage.email,
+      user:response.data.product.user.name 
+      
+
+    });
+
+    console.log(this.state.products);
+  });
+}
   render() {
     return (
-      <div className="container">
-        <div className="contact_form_card span8 col-lg-8">
+<div className="body">
+{this.state.alert_message=="success"?<SuccessAlert />:null}
+<div className="container mbm">
+      <div className="firstcontact_container">
+        
+        <div className="contact_form_card span8">
           {" "}
-          <p className="title">Envoyer un message à « Maroc Espion »</p>{" "}
+          <p className="title">Envoyer un message à « {this.state.user} »</p>{" "}
           <form
-            action="/messages/send/0"
-            method="post"
-            encType="multipart/form-data"
+           onSubmit={this.onSubmit}
+            
           >
-            {" "}
-            <style
-              dangerouslySetInnerHTML={{
-                __html:
-                  "\n#oauth-error{\n  margin-top: 5px;\n  text-align: center;\n  color: indianred;\n}\n",
-              }}
-            />
-            <div id="oauth2">
-              <div id="oauth-providers">
-                <div
-                  scope="public_profile,email"
-                  auth_type="rerequest"
-                  onlogin="fbCheckLoginState();"
-                  width="100%"
-                  className="fb-login-button fb_iframe_widget"
-                  data-size="large"
-                  data-button-type="continue_with"
-                  data-auto-logout-link="false"
-                  data-use-continue-as="true"
-                  login_text
-                  fb-xfbml-state="rendered"
-                  fb-iframe-plugin-query="app_id=290274521075349&auth_type=rerequest&auto_logout_link=false&button_type=continue_with&container_width=330&locale=fr_FR&scope=public_profile%2Cemail&sdk=joey&size=large&use_continue_as=true&width=100%25"
-                >
-                  <span
-                    style={{
-                      verticalAlign: "bottom",
-                      width: "100%",
-                      height: "40px",
-                    }}
-                  >
-                    <iframe
-                      name="ff0457df3ba58"
-                      height="1000px"
-                      data-testid="fb:login_button Facebook Social Plugin"
-                      title="fb:login_button Facebook Social Plugin"
-                      frameBorder={0}
-                      allowTransparency="true"
-                      allowFullScreen="true"
-                      scrolling="no"
-                      allow="encrypted-media"
-                      src="https://www.facebook.com/v3.2/plugins/login_button.php?app_id=290274521075349&auth_type=rerequest&auto_logout_link=false&button_type=continue_with&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df1b12f52a1a979%26domain%3Dwww2.avito.ma%26origin%3Dhttps%253A%252F%252Fwww2.avito.ma%252Ffa6da5bc7bca88%26relation%3Dparent.parent&container_width=330&locale=fr_FR&scope=public_profile%2Cemail&sdk=joey&size=large&use_continue_as=true&width=100%25"
-                      style={{
-                        border: "none",
-                        visibility: "visible",
-                        width: "100%",
-                        height: "40px",
-                      }}
-                      className
-                    />
-                  </span>
-                </div>
-              </div>
-              <div id="oauth-error" className="oauth-error form-alert" />
-              <div className="text-center mts mbs">OU</div>
-            </div>{" "}
             <div className="form-group">
-                <div className="row">
-              <label>Nom</label>{" "}
+              <label>Nom</label>
               <div>
-                {/* <span>
-                  <svg className="iconSvg">
+                {" "}
+                <span>
+                  {" "}
+                  <svg className="iconSvg" style={{marginLeft:"10px"}}>
+                    {" "}
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2a7.2 7.2 0 0 1-6-3.22c.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08a7.2 7.2 0 0 1-6 3.22z" />{" "}
-                  </svg>
-                </span>{" "} */}
-                </div>
+                  </svg>{" "}
+                </span>{" "}
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control inp1"
                   name="name"
-                  placeholder="Nom et prénom"
+                  onChange={this.onChange}
+                  defaultValue={this.state.name}
                 />{" "}
               </div>{" "}
             </div>{" "}
@@ -92,7 +104,7 @@ export default class Chat extends Component {
                 {" "}
                 <span>
                   {" "}
-                  <svg className="iconSvg">
+                  <svg className="iconSvg" style={{marginLeft:"10px"}}>
                     {" "}
                     <path
                       id="a"
@@ -102,10 +114,11 @@ export default class Chat extends Component {
                 </span>{" "}
                 <input
                   type="email"
-                  className="form-control"
+                  className="form-control inp1"
+                  onChange={this.onChange}
                   name="email"
-                  placeholder="exemple@domaine.com"
-                  required
+                  value={this.state.email}
+                  readOnly="readonly"
                 />{" "}
               </div>{" "}
             </div>{" "}
@@ -114,10 +127,11 @@ export default class Chat extends Component {
               <label>Description</label>{" "}
               <textarea
                 rows={6}
-                className="form-control"
-                name="message_body"
+                className="form-control area"
+                name="description"
                 placeholder="Ecrire votre message ici"
-                defaultValue={""}
+                onChange={this.onChange}
+                
               />{" "}
             </div>{" "}
             <div className="btn_row">
@@ -142,7 +156,43 @@ export default class Chat extends Component {
               transactions et ne joue pas le rôle d’intermédiaire.{" "}
             </p>{" "}
           </div>{" "}
+        </div>{" "}
+        <div className=" contact_form_card span8">
+          {" "}
+          <p className="title">Résumé de l'annonce</p>{" "}
+          <div className="details">
+            {" "}
+            <b className="ads_title_desc">{this.state.products.titre}</b>{" "}
+            <br />
+            <b className="ads_price">{this.state.products.prix} Dhs</b>{" "}
+            <p className="ads_date">{this.state.products.created_at}</p>{" "}
+          </div>{" "}
+       
+          <hr />
+          <div className="seperator" />{" "}
+          <div className="details">
+            {" "}
+            <b>Description</b>{" "}
+            <br />
+            <br />
+
+            <p className="ads_desc">{this.state.products.description}</p>{" "}
+          </div>{" "}
+          
+            <hr />
+          <div className="seperator" />{" "}
+          <div className="details">
+            {" "}
+            <b>Localisation</b> 
+            <br />
+
+            <p className="ads_location">{this.state.products.adresse}</p>{" "}
+          </div>{" "}
         </div>
+      </div>
+      </div>
+      <Footer />
+
       </div>
     );
   }

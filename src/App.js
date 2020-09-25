@@ -13,8 +13,10 @@ import TotalLocation from './components/TotalLocation';
 import Show from './components/Show';
 import Edit from './components/Edit';
 import Upload from './components/Upload';
+import Productbycat from './components/Productbycat';
 import Cordonnes from './components/Cordonnes';
 import Chat from './components/Chat';
+import Message from './components/Message';
 
 // import InitialFocus from './components/InitialFocus'
 
@@ -29,9 +31,11 @@ render() {
        <Route exact path="/" component={Home} /> 
        <Route exact path="/show:id" component={Show} /> 
        <Route exact path="/demandelo" component={Demandelo} />
-       <Route exact path="/chat" component={Chat} />
+       <Route exact path="/message" component={Message} />
        <Route exact path="/upload" component={Upload} />
+       <Route exact path="/chat:id" component={Chat} />
        <Route exact path="/proposelo" component={Proposelo} />
+       <Route exact path="/productbycat:id" component={Productbycat} />
        <Route exact path="/login" component={Login} />
        <Route exact path="/register" component={Register} />
        <Route exact path="/detail" component={Detail} />

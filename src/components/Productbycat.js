@@ -1,57 +1,37 @@
 import React, { Component } from 'react'
-import axios from 'axios'
-import Pagination from "react-js-pagination"
-import { Category } from "./CategoryFunctions";
-// import CheckBox from './Checkbox';
+import Axios from 'axios';
 
-export default class Sectionlo extends Component {
-   constructor()
-   {
-      super();
-      this.state = {
-         products:[],
-         activePage:1,
-         itemsCountPerPage:1,
-         totalItemsCount:1,
+
+export default class Productbycat extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+          id: this.props.match.params.id,
+          products: [],
          categories: [],
 
+        };
+        
       }
-  
-  this.handlePageChange = this.handlePageChange.bind(this);
-  }
-  componentDidMount()
-  {
-    axios.get('http://localhost:8000/api/products') 
-    .then(response=>{
-      console.log('response');
-       this.setState({products:response.data.data});
-       console.log(response.data)
-    });
-    Category().then((res) => {
-      console.log(res);
-      console.log("didMount");
-      this.setState({ categories: res });
-    });
-  }
-  handlePageChange(pageNumber) {
-    console.log(`active page is ${pageNumber}`);
-    // this.setState({activePage: pageNumber});
-    axios.get('http://localhost:8000/api/products?page='+pageNumber) 
-    .then(response=>{
-       this.setState({
-         products:response.data.data,
-         activePage:response.data.current_page,
-         itemsCountPerPage:response.data.per_page,
-         totalItemsCount:response.data.total
+      componentDidMount(){
+        const $id = this.state.id;
+        Axios.get("http://localhost:8000/api/catproduct/" + $id).then((response) => {
+          console.log(response);
+          this.setState({
+            products: response.data.product.data,
+           
+          });
+    
+         
         });
-       console.log(response.data)
-    });
-  }
-  render() {
-  
-    return (
-      <div>
-      <section id="gallery-page-content" class="section-padding">
+        console.log(this.state.product);
+        
+      }
+    render() {
+        return (
+            
+            <div>
+            <section id="gallery-page-content" class="section-padding">
       <div class="container">
      
         <div class="row">
@@ -68,7 +48,7 @@ export default class Sectionlo extends Component {
           <div class="row popular-car-gird">
           { this.state.products.map(product=>{
         return(
-            <div class="col-lg-4 col-md-6 con suv mpv box"  >
+            <div class="col-lg-4 col-md-6 con suv mpv" >
               <div class="single-popular-car" style={{height:"450px"}}>
                 <div class="p-car-thumbnails">
                   <a class="car-hover" href={`http://localhost:8000/storage/${product.image1}` }>
@@ -108,21 +88,7 @@ export default class Sectionlo extends Component {
       </div>
       
   </section>
-   <div class="d-flex justify-content-center" style={{marginTop:"1000px"}}>
-   <Pagination
-   activePage={this.state.activePage}
-   itemsCountPerPage={this.state.itemsCountPerPage}
-   totalItemsCount={this.state.totalItemsCount}
-   pageRangeDisplayed={this.state.pageRangeDisplayed}
-   onChange={this.handlePageChange}
-   itemClass='page-item'
-   linkClass='page-link'
- />
-
- </div>
- </div>
-
-
-          
-      )}
-      }
+          </div>
+        )
+    }
+}

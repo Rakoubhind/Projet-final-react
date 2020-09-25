@@ -11,7 +11,7 @@ class Mylocation extends Component {
       surface: "",
       prix: "",
       adresse: "",
-      disponibilite: "",
+      disponibilite: "1",
       chambre: "",
       selectedFile1: null,
       selectedFile2: null,
@@ -59,8 +59,9 @@ class Mylocation extends Component {
         // console.log("hind", localStorage.usertoken);
         console.log(res);
 
-        this.props.history.push(`/totallocation`);
+        // this.props.history.push(`/totallocation`);
       });
+      this.props.history.push(`/totallocation`);
   };
   componentDidMount() {
     Category().then((res) => {
@@ -71,7 +72,7 @@ class Mylocation extends Component {
   }
   render() {
     return (
-      <section id="CreationLocation" className="bg-prim pts ">
+      <section id="CreationLocation" className="bg-prim pts col-lg-12 ">
         <form onSubmit={this.onSubmit}>
           <div className="widthMax center bg-white pbs">
             <div id="introcoach3">
@@ -91,14 +92,13 @@ class Mylocation extends Component {
             <div className="d-flex">
               <div
                 className="coloc_recap_zone fl noborder"
-                style={{ minWidth: "50%" }}
               >
-                <div className="coloc_title">
+                <div className="coloc_title" style={{fontSize:"30px"}}>
                   {" "}
                   <i
                     className="fa fa-home"
                     aria-hidden="true"
-                    style={{ color: "#38bc27" }}
+                    style={{ color: "#38bc27" , }}
                   ></i>{" "}
                   Votre location :
                 </div>
@@ -107,20 +107,19 @@ class Mylocation extends Component {
                   <tbody>
                     <tr>
                       <td className="txtRight" height="26">
-                        Logement proposé :
+                      <label for="exampleFormControlSelect1" style={{marginRight:"40px"}}>Logement proposé :</label>
                       </td>
                       <td className="txtLeft">
-                        <select
-                          name="RdoLogement"
-                          onChange={this.onChange}
-                          name="category_id"
-                        >
-                          {this.state.categories.map((category, i) => (
+                      <div class="form-group">
+             
+    <select class="form-control"  onChange={this.onChange} style={{marginBottom:"10px"}}  name="category_id" >
+    {this.state.categories.map((category, i) => (
                             <option value={category.id} key={i}>
                               {category.name}
                             </option>
                           ))}
-                        </select>
+    </select>
+  </div>
                       </td>
                     </tr>
                     <tr>
@@ -128,15 +127,7 @@ class Mylocation extends Component {
                         Titre:{" "}
                       </td>
                       <td className="txtLeft">
-                        <input
-                          type="text"
-                          onChange={this.onChange}
-                          name="titre"
-                          placeholder=""
-                          maxLength="10"
-                          className="datepicker w2 hasDatepicker"
-                          style={{ verticalAlign: "top" }}
-                        />
+                      <input type="text"   onChange={this.onChange}   name="titre"  style={{marginBottom:"20px"}} className="form-control" id="exampleInputEmail1"/>
                       </td>
                     </tr>
                     <tr>
@@ -144,39 +135,20 @@ class Mylocation extends Component {
                         Description :{" "}
                       </td>
                       <td className="txtLeft">
-                        <input
-                          type="text"
-                          onChange={this.onChange}
-                          name="description"
-                          placeholder=""
-                          maxLength="10"
-                          className="datepicker w2 hasDatepicker"
-                          style={{ verticalAlign: "top" }}
-                        />
+                      <input type="text"   onChange={this.onChange} style={{marginBottom:"20px"}}  name="description" className="form-control" id="exampleInputEmail1"/>
+
                       </td>
                     </tr>
-                    <tr>
+                    {/* <tr>
                       <td className="txtRight" height="26">
                         Disponibilité :{" "}
                       </td>
                       <td className="txtLeft">
-                        <input
-                          type="text"
-                          onChange={this.onChange}
-                          name="disponibilite"
-                          placeholder=""
-                          maxLength="10"
-                          className="datepicker w2 hasDatepicker"
-                          style={{ verticalAlign: "top" }}
-                        />
+                      <input type="text"   onChange={this.onChange} style={{marginBottom:"20px"}}  name="disponibilite" className="form-control" id="exampleInputEmail1"/>
                       </td>
 
-                      {/* <tr>
-								<ul>
-									{this.state.categories.map((category)=><li>{category.name}</li>)}
-								</ul>
-							</tr> */}
-                    </tr>
+                  
+                    </tr> */}
                     <tr>
                       <td id="response"></td>
                     </tr>
@@ -186,15 +158,8 @@ class Mylocation extends Component {
                         Nombre chambre :{" "}
                       </td>
                       <td className="txtLeft">
-                        <input
-                          type="text"
-                          onChange={this.onChange}
-                          name="chambre"
-                          placeholder=""
-                          maxLength="10"
-                          className="datepicker w2 hasDatepicker"
-                          style={{ verticalAlign: "top" }}
-                        />
+                      <input type="text"   onChange={this.onChange} style={{marginBottom:"20px"}}  name="chambre" className="form-control" id="exampleInputEmail1"/>
+
                       </td>
                     </tr>
 
@@ -203,15 +168,10 @@ class Mylocation extends Component {
                         Image1 :{" "}
                       </td>
                       <td className="txtLeft">
-                        <input
-                          type="file"
-                          onChange={this.onChange}
-                          name="image1"
-                          placeholder=""
-                          maxLength="10"
-                          className="datepicker w2 hasDatepicker"
-                          style={{ verticalAlign: "top" }}
-                        />
+                      <div class="custom-file">
+  <input type="file" className="custom-file-input" name="image1" style={{marginBottom:"20px"}} onChange={this.onChange}  />
+  <label className="custom-file-label" for="customFileLang">Selecionner un fichier</label>
+</div>
                       </td>
                     </tr>
                     <tr>
@@ -219,15 +179,10 @@ class Mylocation extends Component {
                         Image2 :{" "}
                       </td>
                       <td className="txtLeft">
-                        <input
-                          type="file"
-                          onChange={this.onChange}
-                          name="image2"
-                          placeholder=""
-                          maxLength="10"
-                          className="datepicker w2 hasDatepicker"
-                          style={{ verticalAlign: "top" }}
-                        />
+                      <div class="custom-file">
+  <input type="file" className="custom-file-input" name="image2" style={{marginBottom:"20px"}} onChange={this.onChange}  />
+  <label className="custom-file-label" for="customFileLang">Selecionner un fichier</label>
+</div>
                       </td>
                     </tr>
                     <tr>
@@ -235,7 +190,7 @@ class Mylocation extends Component {
                         Image 3:{" "}
                       </td>
                       <td className="txtLeft">
-                        <input
+                        {/* <input
                           type="file"
                           onChange={this.onChange}
                           name="image3"
@@ -243,7 +198,11 @@ class Mylocation extends Component {
                           maxLength="10"
                           className="datepicker w2 hasDatepicker"
                           style={{ verticalAlign: "top" }}
-                        />
+                        /> */}
+                        <div class="custom-file">
+  <input type="file" className="custom-file-input" name="image3"  onChange={this.onChange}  />
+  <label className="custom-file-label" for="customFileLang">Selecionner un fichier</label>
+</div>
                       </td>
                     </tr>
                   </tbody>
@@ -255,7 +214,7 @@ class Mylocation extends Component {
               <table cellPadding="0" cellSpacing="2" className="pt">
                 <tbody>
                   <tr>
-                    <td className="txtRight" height="26">
+                    <td className="txtRight" >
                       Loyer + charges mensuels :
                     </td>
                     <td className="txtLeft">
@@ -263,14 +222,8 @@ class Mylocation extends Component {
                         <tbody>
                           <tr>
                             <td className="txtLeft">
-                              <input
-                                type="text"
-                                name="prix"
-                                onChange={this.onChange}
-                                maxLength="5"
-                                className="w2"
-                                style={{ width: "40px" }}
-                              />
+                      <input type="text"   onChange={this.onChange} style={{marginBottom:"10px"}}  name="prix" className="form-control" id="exampleInputEmail1"/>
+                              
                             </td>
                             <td className="txtLeft">&nbsp;€</td>
                           </tr>
@@ -279,35 +232,22 @@ class Mylocation extends Component {
                     </td>
                   </tr>
                   <tr>
-                    <td className="txtRight" id="Superficie" height="26">
+                    <td className="txtRight" id="Superficie" >
                       Superficie de votre logement :&nbsp;
                     </td>
                     <td className="txtLeft">
-                      <input
-                        type="text"
-                        name="surface"
-                        onChange={this.onChange}
-                        maxLength="4"
-                        className="w2"
-                        style={{ width: "40px" }}
-                      />{" "}
-                      m²
+                    <input type="text"   onChange={this.onChange} style={{marginBottom:"20px"}}  name="surface" className="form-control" id="exampleInputEmail1"/>
+          
                     </td>
+                    <td className="txtLeft">  m²</td>
                   </tr>
                   <tr>
-                    <td className="txtRight" height="26">
+                    <td className="txtRight" >
                       Adresse :{" "}
                     </td>
                     <td className="txtLeft">
-                      <input
-                        type="text"
-                        onChange={this.onChange}
-                        name="adresse"
-                        placeholder=""
-                        maxLength="10"
-                        className="datepicker w2 hasDatepicker"
-                        style={{ verticalAlign: "top" }}
-                      />
+                    <input type="text"   onChange={this.onChange} style={{marginBottom:"20px"}}  name="adresse" className="form-control" id="exampleInputEmail1"/>
+                     
                     </td>
                   </tr>
                 </tbody>
@@ -327,47 +267,12 @@ class Mylocation extends Component {
                 cellSpacing=""
                 width="100%"
               >
-                {/* <tbody>
-                  <tr>
-                    <td valign="top" width="50%">
-                      <table cellPadding="0" cellSpacing="2">
-                        <tbody>
-                          <tr>
-                            <td className="txtRight" height="26">
-                              Locataires&nbsp;recherchés&nbsp;:{" "}
-                            </td>
-                            <td className="txtLeft">
-                              <select name="Etudiant">
-                                <option selected="selected">
-                                  Tous les locataires
-                                </option>
-                                <option>Seulement des étudiants</option>
-                              </select>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      <hr />
-                    </td>
-                  </tr>
-                </tbody> */}
+               
               </table>
             </div>
 
             <div className="coloc_sep"></div>
-            {/* <div className="coloc_recap_zone fl noborder">
-					<div className="coloc_title"><i class="fa fa-map-marker" aria-hidden="true" style={{color: "#38bc27"}}></i> Ville où se trouve votre location :</div>
-					<input type="hidden" name="OuVille" value=""/>
-					<input type="hidden" name="OuInsee" value=""/>
-					<input type="hidden" name="OuZip" value=""/>
-					<input type="hidden" name="OuCps" value="" disabled="disabled"/>
-					<input type="hidden" name="OuPopulation" value="" disabled="disabled"/>
-					<input type="hidden" name="min_x" value="" disabled="disabled"/>
-					<input type="hidden" name="max_x" value="" disabled="disabled"/>
-					<input type="hidden" name="min_y" value="" disabled="disabled"/>
-					<input type="hidden" name="max_y" value="" disabled="disabled"/>
-					<input type="text" id="editVille" name="uiVille" value=""  style={{width:"250px"}} placeholder="Ville ou code postal"  />
-									</div>	 */}
+            
 
             <div className="coloc_sep"></div>
             <hr />
@@ -378,48 +283,7 @@ class Mylocation extends Component {
           </div>
         </form>
       </section>
-      // 		<form onSubmit={this.onSubmit}>
-      // 		<table className="centered bg-white " cellPadding="0" cellSpacing="8" align="center">
-      // 		  <tbody>
-      // 			  <tr>
-      // 				  <td className="txtright">slug: </td>
-      // 				  <td className="txtleft"><input type="text" className="owner_text" name="slug"  maxlength="128" size="20" onChange={this.onChange}/></td>
-      // 			  </tr>
-      // 			   <tr>
-      // 				   <td className="txtright">Email : </td>
-      // 				   <td className="txtleft"><input type="text" className="owner_text" name="category_id"  maxlength="128" size="20" onChange={this.onChange} /></td>
-      // 			   </tr>
-      // 				<tr>
-      // 				   <td className="txtright">Choisissez un mot de passe : </td>
-      // 				   <td className="txtleft"><input type="prix" className="owner_text" name="password"  maxlength="64" size="20" onChange={this.onChange} /></td>
-      // 			   </tr>
-      // 			   <tr>
-      // 				  <td className="txtright">Saisissez ce mot de passe à nouveau&nbsp;: </td>
-      // 				  <td className="txtleft"><input type="c_password" className="owner_text" name="c_password"  maxlength="64" size="20" onChange={this.onChange} /></td>
-      // 			   </tr>
-      // 			   <tr>
-      // 				   <td className="txtcenter" colspan="2">
-      // 				   <input id="infos" type="checkbox" name="Infos" value="2"/><label for="infos">&nbsp;Je souhaite bénéficier d'informations pratiques réservées aux bailleurs particuliers</label>
-      // 				  </td>
-      // 			   </tr>
-      // 	  </tbody>
-      // 	  </table>
-
-      // 	  <div id="conditionutilisation" className="bg-vert-light ptm pbs">
-      //    <h4 className="txtcenter">Conditions d'utilisation</h4>
-      //    <p className="txtcenter txtVert">Je reconnais ne pas travailler pour un professionnel de l'immobilier (agence, marchand de liste, notaire, ...)</p>
-      //    <p className="txtcenter txtVert">Je reconnais ne contacter les locataires que pour leur proposer une location sans frais d'intermédiaires</p>
-      //    <p className="txtcenter txtVert">Je m'engage à ne pas proposer de locations saisonnières ou de vacances</p>
-      //    <div className="txtcenter txtBold txtVertt"><input id="Accept" type="checkbox" name="Accept" /><label for="Accept">&nbsp;J'accepte les conditions d'utilisation et la notice légale</label>
-      //    </div>
-      // 	</div>
-      // 	  <div className="txtcenter  di">
-      // <button type="submit" className="cta cta-vert prl pll  pbs">Créer mon Espace Propriétaire</button>
-
-      // </div>
-
-      // </form>
-    );
+     );
   }
 }
 export default Mylocation;

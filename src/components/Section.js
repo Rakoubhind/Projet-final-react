@@ -3,20 +3,20 @@ import React, { Component } from 'react'
 export default class Section extends Component {
     render() {
         const noauth =(
-            <div className=" div2">
-                        <button className="btn2"><a href="/Proposelo" className="a2">JE PROPOSE UNE LOCATION</a></button>
+            <div className=" div2 hvr-curl-top-left ">
+                        <button className="btn2 buzz-out-on-hover"><a href="/Proposelo" className="a2">JE PROPOSE UNE LOCATION</a></button>
                     </div>
         );
         const auth =(
-            <div className=" div2">
-                        <button className="btn2"><a href="/totallocation" className="a2">JE PROPOSE UNE LOCATION</a></button>
+            <div className=" div2 hvr-curl-top-left ">
+                        <button className="btn2 buzz-out-on-hover"><a href="/totallocation" className="a2 link buzz-out-on-hover">JE PROPOSE UNE LOCATION</a></button>
                     </div>
         );
         return (
             <div>
                 <div className="d-flex col-lg-12">
-                    <div className=" div1">
-                        <button className="btn1"><a href="/Demandelo" className="a1" >JE CHERCHE UNE LOCATION</a></button>
+                    <div className=" div1 hvr-curl-top-left  ">
+                        <button className="btn1 buzz-out-on-hover"><a href="/Demandelo" className="a1" >JE CHERCHE UNE LOCATION</a></button>
                     </div>
                     {/* <div className=" div2">
                         <button className="btn2"><a href="/Proposelo" className="a2">JE PROPOSE UNE LOCATION</a></button>

@@ -13,7 +13,7 @@ export default class TotalLocation extends Component {
         //  totalItemsCount:1
 
       }
-  
+   
   // this.handlePageChange = this.handlePageChange.bind(this);
   }
   componentDidMount()
@@ -68,9 +68,9 @@ if(products[i].id==product_id)
             <section className="coloc_menu coloc_menu_prop ">
             <div className="widthMax center d-flex">
                 <ul>
-                    <li><a href="/totallocation" className="ahovv">Mes locations</a></li>
-                    <li><a href="/cordonnes" className="ahovv">Mes coordonnées</a></li>
-                    
+                    <li><a href="/totallocation" className="ahovv hvr-bounce-in">Mes locations</a></li>
+                    <li><a href="/cordonnes" className="ahovv hvr-bounce-in">Mes coordonnées</a></li>
+                    <li><a href="/message" className="ahovv hvr-bounce-in">Messages</a></li>
           			</ul>
             </div>
         </section>
@@ -82,6 +82,7 @@ if(products[i].id==product_id)
 							
 								
 								<th className="header">Titre</th>
+								<th className="header">Image</th>
 								<th className="header">Description</th>
 								<th className="header">Surface hab.</th>
 								<th className="header">Chambres</th>
@@ -97,6 +98,20 @@ if(products[i].id==product_id)
 return(
 			<tr className="spaced">
                  <td className="txtLeft">{product.titre}</td>
+                 <td className="txtLeft"><img
+                        src={`http://localhost:8000/storage/${product.image1}`}
+                        alt="2222"
+                        style={{ height: "50px" , width:"50px" }}
+                      /><img
+                      src={`http://localhost:8000/storage/${product.image2}`}
+                      alt="2222"
+                      style={{ height: "50px" , width:"50px" }}
+                    />
+                    <img
+                        src={`http://localhost:8000/storage/${product.image3}`}
+                        alt="2222"
+                        style={{ height: "50px" , width:"50px" }}
+                      /></td>
                 <td className="txtCenter txtcenter" >{product.description.substring( 0, 38)}</td>
                 <td className="txtCenter txtcenter" >
                 <span className="mobileOnly"></span>{product.surface}m²</td>
@@ -109,9 +124,9 @@ return(
                         {/* <td className="txtCenter txtcenter"> */}
                             {/* <a id="left_664572" className="louee_alouer left_alouer" href="#" title="">À louer</a>
                             <a id="right_664572" className="louee_alouer right_alouer" href="#" >Louée</a> */}
-                           <td className="oneIcon"><Link to={`/mylocation/edit/${product.id}`} ><i className="fa fa-pencil" aria-hidden="true"></i>
+                           <td className="oneIcon"><Link to={`/mylocation/edit/${product.id}`} ><i className="fa fa-pencil hvr-bounce-in" aria-hidden="true"></i>
                            </Link></td>
-                           <td className="oneIcon"><Link to="#"  onClick={this.onDelete.bind(this,product.id)}><i className="fa fa-trash"></i>
+                           <td className="oneIcon"><Link to="#"  onClick={this.onDelete.bind(this,product.id)}><i className="fa fa-trash hvr-bounce-in"></i>
                            </Link></td>
           </tr>
           )
@@ -124,7 +139,7 @@ return(
 				
 						<div className="clear"></div>
 			
-			<a href="/mylocation" className="bigcta">Créer une nouvelle location</a>
+			<a href="/mylocation" className="bigcta buzz-out-on-hover">Créer une nouvelle location</a>
             {/* <h1>{this.state.name}</h1>
 		    <h1>{this.state.email}</h1> */}
 		</div>

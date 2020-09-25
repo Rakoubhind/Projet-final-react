@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import {getProfile} from './UserFunctions' 
+import Axios from 'axios'
+import { Category } from './CategoryFunctions'
 
 class Nav extends Component {
   constructor(){
@@ -9,6 +11,8 @@ class Nav extends Component {
         name : '',
         email : '',
         avatar:'',
+        categories:[],  
+        products:[]
        
     }
 }
@@ -17,42 +21,20 @@ class Nav extends Component {
     localStorage.removeItem('usertoken')
     this.props.history.push(`/`)
 }
+componentDidMount() {
+  Category().then((res) => {
+    console.log(res);
+    console.log("didMount");
+    this.setState({ categories: res });
+  });
+}
 
 
     render() {
       const loginRegLink =(
         <div className="d-flex flex-column">
         {/* <button className="aa"><Link to="/login"     style={{color:"white" }} >Accéder à mon Espace </Link></button> */}
-        <button type="button" class="aa" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><Link to="/login"     style={{color:"white" }} >Accéder à mon Espace </Link></button>
-
-  {/* <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-   <div className="modal-dialog" role="document">
-    <div className="modal-content">
-      <div className="modal-header">
-        <h5 className="modal-title" id="exampleModalLabel">New message</h5>
-        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div className="modal-body">
-        <form>
-          <div className="form-group">
-            <label htmlFor="recipient-name" className="col-form-label">Recipient:</label>
-            <input type="text" className="form-control" id="recipient-name" />
-          </div>
-          <div className="form-group">
-            <label htmlFor="message-text" className="col-form-label">Message:</label>
-            <textarea className="form-control" id="message-text"></textarea>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" className="btn btn-primary">Send message</button>
-      </div>
-    </div>
-  </div>
-</div> */}
+        <button type="button" className="aa" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><Link to="/login"     style={{color:"white" }} >Accéder à mon Espace </Link></button>
         <button className="ab"><Link to="./register" style={{color:'#FC822B'}}> Pas Encore Inscrit ? </Link></button>
          </div>)
  const userLink =
@@ -73,21 +55,19 @@ class Nav extends Component {
         <div className="collapse navbar-collapse" id="navbarsExample02">
          
           <ul className="navbar-nav mr-auto">
+          
             <li className="nav-item active">
               <a className="nav-link nl" href="/" style={{color:"#B8B8B8"}}>LOCATION <span className="sr-only">(current)</span></a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link nl" href="#" style={{color:"#B8B8B8"}}>MAISONS</a>
+         
+            {this.state.categories.map((category, i) => (
+         
+            <li className="nav-item active" key={i}>
+              <a className="nav-link nl" href={"/productbycat" +category.id} style={{color:"#B8B8B8", textTransform:"uppercase"}} >{category.name}</a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link nl " href="#" style={{color:"#B8B8B8"}}>STUDIOS</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link nl" href="#" style={{color:"#B8B8B8"}}>VILLAS</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link nl" href="#" style={{color:"#B8B8B8"}}>APPARTEMENTS</a>
-            </li>
+           ))} 
+        
+          
           </ul>
 
           {/* <form className="form-inline my-2 my-md-0">
